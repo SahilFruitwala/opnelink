@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { posthog } from "../lib/posthogClient";
 
 function SunIcon() {
   return (
@@ -69,6 +70,7 @@ export function ThemeToggle() {
   const toggleTheme = () => {
     const newIsDark = !isDark;
     setIsDark(newIsDark);
+    posthog.capture("theme_toggle", { theme: newIsDark ? "dark" : "light" });
     if (newIsDark) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");

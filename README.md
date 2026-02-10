@@ -16,6 +16,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### PostHog analytics
+
+To enable [PostHog](https://posthog.com) analytics, set in `.env.local` (see `.env.example`):
+
+- `NEXT_PUBLIC_POSTHOG_KEY` — Project API key from PostHog (Project settings).
+- `NEXT_PUBLIC_POSTHOG_HOST` — Optional; defaults to `https://app.posthog.com` (use for EU or self-hosted).
+
+When configured, the app sends: pageviews (with UTM/referrer), link clicks (`openlink_click`), newsletter signups (`newsletter_submit`), and theme toggles (`theme_toggle`). Autocapture is enabled for additional interactions.
+
 ### Newsletter (Beehiiv)
 
 To enable the newsletter signup form with [Beehiiv](https://beehiiv.com), set these in `.env.local` (see `.env.example`):

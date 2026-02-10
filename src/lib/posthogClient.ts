@@ -4,6 +4,10 @@ let initialized = false;
 
 export function initPosthog() {
   if (initialized || typeof window === "undefined") return;
+  if (process.env.NODE_ENV === "development") {
+    initialized = true;
+    return;
+  }
 
   const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   const host =

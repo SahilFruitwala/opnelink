@@ -12,13 +12,11 @@ export function PosthogProvider({ children }: Props) {
   useEffect(() => {
     initPosthog();
     const context = getTrackingContext();
-    if (context) {
-      posthog.capture("$pageview", {
-        ...context.utm,
-        sourcePlatform: context.sourcePlatform,
-        referrerHost: context.referrerHost,
-      });
-    }
+    posthog.capture("$pageview", {
+      ...context?.utm,
+      sourcePlatform: context?.sourcePlatform ?? undefined,
+      referrerHost: context?.referrerHost ?? undefined,
+    });
   }, []);
 
   return <>{children}</>;
