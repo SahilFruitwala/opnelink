@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+Want to contribute? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for setup and how to submit changes.
+
 ## Getting Started
 
 First, run the development server:
