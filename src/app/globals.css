@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f0e9;
+  --foreground: #3a5a40;
+  --color-primary: #6b8e61;
+  --color-accent: #a3b18a;
+  --color-cream: #f9f7f2;
+  --color-earth: #3a5a40;
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --color-primary: #8ab67d;
+  --color-accent: #c2d1ad;
+  --color-cream: #171717;
+  --color-earth: #f0f0f0;
 }
 
 @theme inline {
@@ -10,17 +23,56 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-cream: var(--color-cream);
+  --color-earth: var(--color-earth);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: max(884px, 100dvh);
+  background-color: #f2f0e9;
+  background-image:
+    radial-gradient(at 0% 0%, #f9f7f2 0, transparent 50%),
+    radial-gradient(at 100% 0%, #e9edc9 0, transparent 50%);
+  color: var(--color-earth);
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Plus Jakarta Sans", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  background-image:
+    radial-gradient(at 0% 0%, #171717 0, transparent 50%),
+    radial-gradient(at 100% 0%, #050505 0, transparent 50%);
+  color: var(--color-foreground);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.profile-glow {
+  box-shadow: 0 0 25px rgba(107, 142, 97, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.dark .profile-glow {
+  box-shadow: 0 0 25px rgba(123, 160, 114, 0.3);
+}
+
+.bento-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
