@@ -16,7 +16,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Newsletter (Beehiiv)
+
+To enable the newsletter signup form with [Beehiiv](https://beehiiv.com), set these in `.env.local` (see `.env.example`):
+
+- `BEEHIIV_API_KEY` — Bearer token from Beehiiv (Dashboard → Settings → API).
+- `BEEHIIV_PUBLICATION_ID` — Your publication ID (e.g. `pub_xxxx`).
+
+If either is missing, the form is hidden and `POST /api/newsletter` returns 503.
+
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
