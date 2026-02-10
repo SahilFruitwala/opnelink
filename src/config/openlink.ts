@@ -50,7 +50,7 @@ export const profile = {
   name: "Sahil Fruitwala",
   handle: "@SahilBeingSahil",
   role: "Developer & Creator",
-  avatarUrl: "https://avatars.githubusercontent.com/u/000000?v=4",
+  avatarUrl: "/profile.webp",
   bio: "Building the future of digital expression, one pixel at a time.",
 };
 
