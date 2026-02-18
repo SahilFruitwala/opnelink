@@ -128,6 +128,8 @@ export function NewsletterForm() {
               <input key={key} type="hidden" name={key} value={value} />
             ))}
           <input
+            id="newsletter-email"
+            aria-label="Email for newsletter"
             type="email"
             name="email"
             required

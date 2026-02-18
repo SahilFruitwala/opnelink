@@ -41,20 +41,31 @@ const structuredData = JSON.stringify({
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="OpenLink, link in bio, digital identity, social media links, minimal link page, Sahil Fruitwala"
+    />
+    <meta name="author" content="Sahil Fruitwala" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fdfdfb" />
+    <link rel="canonical" href={siteUrl} />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
     <meta property="og:site_name" content="OpenLink" />
-    <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:creator" content="@SahilBeingSahil" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="twitter:creator" content="@SahilBeingSahil" />
 
     <script is:inline>
       const getTheme = () => {

@@ -49,6 +49,7 @@ export function TrackedLink({
       href={href}
       target={target}
       rel={rel}
+      aria-label={label}
       onClick={handleClick}
       className={className}
     >
