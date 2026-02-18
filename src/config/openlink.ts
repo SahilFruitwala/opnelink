@@ -26,6 +26,7 @@ export type FeaturedLink = {
 export type LinkItem = {
   label: string;
   href: string;
+  description?: string;
   iconEmoji?: string;
   iconImageUrl?: string;
 };
@@ -93,11 +94,12 @@ export const featuredLinks: FeaturedLink[] = [
 ];
 
 export const links: LinkItem[] = [
-  // {
-  //   label: "Brush & Preset Shop",
-  //   href: "https://sahilfruitwala.com",
-  //   iconEmoji: "✦",
-  // },
+  {
+    label: "MicroPNG",
+    href: "https://micropng.sahilfruitwala.com",
+    description: "Compress, Convert & Resize Images",
+    iconEmoji: "✦",
+  },
   // {
   //   label: "1-on-1 Portfolio Review",
   //   href: "https://sahilfruitwala.com/projects",

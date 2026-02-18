@@ -69,7 +69,7 @@ export function LinkList() {
           href={item.href}
           section="links"
           label={item.label}
-          className="group glass relative flex min-h-[56px] items-center justify-center gap-4 rounded-3xl p-4 transition-all hover:scale-[1.02] hover:bg-white/50 dark:hover:bg-white/10"
+          className="group glass relative flex min-h-[64px] items-center justify-center gap-4 rounded-3xl p-4 transition-all hover:scale-[1.02] hover:bg-white/50 dark:hover:bg-white/10"
         >
           {(item.iconEmoji || item.iconImageUrl) && (
             <div className="absolute left-4 flex h-8 w-8 shrink-0 items-center justify-center text-earth transition-transform group-hover:scale-110 dark:text-earth">
@@ -86,8 +86,13 @@ export function LinkList() {
             </div>
           )}
           
-          <div className="flex flex-col items-center justify-center px-8 text-center">
+          <div className="flex flex-col items-center justify-center gap-0.5 px-8 text-center">
             <p className="text-sm font-bold text-earth dark:text-earth">{item.label}</p>
+            {item.description && (
+              <p className="text-[10px] font-medium text-earth/60 dark:text-earth/70">
+                {item.description}
+              </p>
+            )}
           </div>
         </TrackedLink>
       ))}

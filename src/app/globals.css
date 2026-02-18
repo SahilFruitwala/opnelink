@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f2f0e9;
+  --background: #fdfdfb;
   --foreground: #3a5a40;
-  --color-primary: #6b8e61;
-  --color-accent: #a3b18a;
-  --color-cream: #f9f7f2;
+  --color-primary: #7ba072;
+  --color-accent: #c2cdb1;
+  --color-cream: #ffffff;
   --color-earth: #3a5a40;
 }
 
@@ -27,16 +27,15 @@
   --color-accent: var(--color-accent);
   --color-cream: var(--color-cream);
   --color-earth: var(--color-earth);
-  --color-border: var(--color-accent);
 }
 
 body {
   min-height: 100dvh;
   background-color: var(--background);
   background-image:
-    radial-gradient(at 0% 0%, var(--color-accent) 0, transparent 40%),
-    radial-gradient(at 100% 100%, var(--color-primary) 0, transparent 40%),
-    radial-gradient(at 50% 50%, var(--color-cream) 0, transparent 80%);
+    radial-gradient(at 0% 0%, rgba(194, 205, 177, 0.08) 0, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(123, 160, 114, 0.06) 0, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.3) 0, transparent 100%);
   background-attachment: fixed;
   color: var(--color-earth);
   font-family:
@@ -54,8 +53,8 @@ body {
 
 .dark body {
   background-image:
-    radial-gradient(at 0% 0%, rgba(138, 182, 125, 0.15) 0, transparent 40%),
-    radial-gradient(at 100% 100%, rgba(107, 142, 97, 0.1) 0, transparent 40%),
+    radial-gradient(at 0% 0%, rgba(138, 182, 125, 0.08) 0, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(107, 142, 97, 0.05) 0, transparent 40%),
     radial-gradient(at 50% 10%, rgba(23, 23, 23, 1) 0, transparent 80%);
 }
 
