@@ -58,6 +58,7 @@ export function NewsletterForm() {
           setSuccess(true);
           posthog.capture("newsletter_submit", {
             ...context?.utm,
+            app: context?.app,
             sourcePlatform: context?.sourcePlatform,
             referrerHost: context?.referrerHost,
           });
@@ -77,6 +78,7 @@ export function NewsletterForm() {
     const context = getTrackingContext();
     posthog.capture("newsletter_submit", {
       ...context?.utm,
+      app: context?.app,
       sourcePlatform: context?.sourcePlatform,
       referrerHost: context?.referrerHost,
     });

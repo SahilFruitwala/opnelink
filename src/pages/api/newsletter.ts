@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import type { APIRoute } from "astro";
 
 const BEEHIIV_API = "https://api.beehiiv.com/v2";
 
@@ -8,14 +8,14 @@ function isValidEmail(value: unknown): value is string {
   return emailRegex.test(value.trim());
 }
 
-export async function POST(request: NextRequest) {
-  const apiKey = process.env.BEEHIIV_API_KEY;
-  const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
+export const POST: APIRoute = async ({ request }) => {
+  const apiKey = import.meta.env.BEEHIIV_API_KEY;
+  const publicationId = import.meta.env.BEEHIIV_PUBLICATION_ID;
 
   if (!apiKey || !publicationId) {
-    return NextResponse.json(
-      { error: "Newsletter is not configured." },
-      { status: 503 }
+    return new Response(
+      JSON.stringify({ error: "Newsletter is not configured." }),
+      { status: 503, headers: { "Content-Type": "application/json" } }
     );
   }
 
@@ -23,17 +23,17 @@ export async function POST(request: NextRequest) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request body." },
-      { status: 400 }
+    return new Response(
+      JSON.stringify({ error: "Invalid request body." }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
     );
   }
 
   const email = body.email;
   if (!isValidEmail(email)) {
-    return NextResponse.json(
-      { error: "A valid email is required." },
-      { status: 400 }
+    return new Response(
+      JSON.stringify({ error: "A valid email is required." }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
     );
   }
 
@@ -68,7 +68,10 @@ export async function POST(request: NextRequest) {
   });
 
   if (response.ok) {
-    return NextResponse.json({ success: true });
+    return new Response(
+      JSON.stringify({ success: true }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
+    );
   }
 
   const contentType = response.headers.get("content-type");
@@ -86,5 +89,8 @@ export async function POST(request: NextRequest) {
   }
 
   const status = response.status >= 500 ? 502 : response.status;
-  return NextResponse.json({ error: errorMessage }, { status });
+  return new Response(
+    JSON.stringify({ error: errorMessage }),
+    { status, headers: { "Content-Type": "application/json" } }
+  );
 }

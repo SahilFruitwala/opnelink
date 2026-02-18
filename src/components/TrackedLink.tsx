@@ -35,6 +35,7 @@ export function TrackedLink({
       label,
       href,
       finalHref,
+      app: context?.app,
       ...context?.utm,
       sourcePlatform: context?.sourcePlatform,
       referrerHost: context?.referrerHost,

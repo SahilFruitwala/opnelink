@@ -11,6 +11,7 @@ export type TrackingContext = {
   utm: UTMParams;
   sourcePlatform?: string;
   referrerHost?: string | null;
+  app: string;
 };
 
 let cachedContext: TrackingContext | null = null;
@@ -77,6 +78,7 @@ export function getTrackingContext(): TrackingContext | null {
     utm,
     sourcePlatform: platformFromReferrer ?? incomingUTM.utm_source,
     referrerHost,
+    app: "openlink",
   };
 
   return cachedContext;
@@ -92,6 +94,9 @@ export function buildTrackedUrl(
   try {
     const url = new URL(baseUrl);
     const params = url.searchParams;
+
+    // Add ref=openlink to identify the source app
+    params.set("ref", context.app);
 
     Object.entries(context.utm).forEach(([key, value]) => {
       if (!value) return;

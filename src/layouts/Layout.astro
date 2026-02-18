@@ -1,0 +1,70 @@
+---
+import "../styles/globals.css";
+import { profile, socialLinks } from "../config/openlink";
+import PosthogProvider from "../components/PosthogProvider";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "OpenLink – Minimal link page",
+  description = "OpenLink is a fast, minimal link-in-bio page with UTM and PostHog tracking built-in.",
+} = Astro.props;
+
+const siteUrl = "https://openlink.sahilfruitwala.com";
+const name = profile.name;
+const role = profile.role;
+const bio = profile.bio;
+const avatarUrl = profile.avatarUrl;
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: name,
+  url: siteUrl,
+  jobTitle: role,
+  description: bio,
+  image: avatarUrl,
+  sameAs: socialLinks.map((link) => link.href),
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="OpenLink" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content="@SahilBeingSahil" />
+
+    <script is:inline type="application/ld+json" set:html={structuredData} />
+  </head>
+  <body class="antialiased">
+    <PosthogProvider client:load>
+      <slot />
+    </PosthogProvider>
+  </body>
+</html>
+
+<style is:global>
+  /* Any additional overrides can go here */
+</style>

@@ -1,9 +1,9 @@
-import { ProfileHeader } from "../components/ProfileHeader";
-import { SocialRow } from "../components/SocialRow";
-import { FeaturedLinks, LinkList } from "../components/Links";
-import { NewsletterForm } from "../components/NewsletterForm";
-import { EmbedsSection } from "../components/EmbedsSection";
-import { ThemeToggle } from "../components/ThemeToggle";
+import { ProfileHeader } from "./ProfileHeader";
+import { SocialRow } from "./SocialRow";
+import { FeaturedLinks, LinkList } from "./Links";
+import { NewsletterForm } from "./NewsletterForm";
+import { EmbedsSection } from "./EmbedsSection";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Home() {
   return (
@@ -27,4 +27,3 @@ export default function Home() {
     </div>
   );
 }
-

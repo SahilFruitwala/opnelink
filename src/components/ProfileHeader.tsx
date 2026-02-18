@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { profile } from "../config/openlink";
 
 export function ProfileHeader() {
@@ -6,13 +5,11 @@ export function ProfileHeader() {
     <header className="flex w-full flex-col items-center px-6 pt-8 pb-4 text-center">
       <div className="relative mb-4">
         <div className="profile-glow relative h-28 w-28 overflow-hidden rounded-full border-[3px] border-white bg-cream transition-transform hover:scale-105 dark:border-white/10 dark:bg-zinc-900">
-          <Image
+          <img
             src={profile.avatarUrl}
             alt={profile.name}
-            fill
-            sizes="112px"
-            className="object-cover"
-            priority
+            className="h-full w-full object-cover"
+            loading="eager"
           />
         </div>
         <div className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full border-[3px] border-white bg-primary text-white shadow-lg dark:border-zinc-950">
