@@ -56,6 +56,21 @@ const structuredData = JSON.stringify({
     <meta name="twitter:description" content={description} />
     <meta name="twitter:creator" content="@SahilBeingSahil" />
 
+    <script is:inline>
+      const getTheme = () => {
+        const stored = localStorage.getItem("theme");
+        if (stored) return stored;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      if (getTheme() === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
     <script is:inline type="application/ld+json" set:html={structuredData} />
   </head>
   <body class="antialiased">
