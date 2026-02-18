@@ -6,7 +6,7 @@
       "name": "web",
       "dependencies": {
         "next": "16.1.6",
-        "posthog-js": "^1.345.5",
+        "posthog-js": "^1.347.2",
         "react": "19.2.3",
         "react-dom": "19.2.3",
       },

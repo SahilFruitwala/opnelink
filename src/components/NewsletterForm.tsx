@@ -84,37 +84,34 @@ export function NewsletterForm() {
   };
 
   return (
-    <section className="glass relative flex w-full min-h-[140px] flex-col justify-between overflow-hidden rounded-2xl border border-white/40 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent p-5 dark:border-white/10 dark:from-primary/20 dark:via-accent/10">
-      <div className="relative z-10 space-y-1">
-        <div className="mb-1 flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-white/70 text-primary shadow-sm dark:bg-white/20 dark:text-primary">
-            <span className="text-xs font-semibold">✉️</span>
-          </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-            The Weekly Leaf
-          </span>
+    <section className="glass relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/40 bg-white/30 p-6 transition-all hover:bg-white/40 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+      <div className="relative z-10 space-y-2 text-center">
+        <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-primary/20">
+          <span className="text-xl">✉️</span>
         </div>
-        <h2 className="text-base font-bold leading-tight text-earth dark:text-earth">
+        <h2 className="text-lg font-bold tracking-tight text-earth dark:text-earth">
           Join the Inner Circle
         </h2>
-        <p className="mt-1 text-[11px] text-earth/70 dark:text-earth/80">
+        <p className="mx-auto max-w-[280px] text-xs font-medium leading-relaxed text-earth/60 dark:text-earth/70">
           Exclusive updates about what I&apos;m building, reading, and learning.
         </p>
       </div>
+      
       {success ? (
-        <div className="relative z-10 mt-4 space-y-2">
-          <p className="text-sm font-medium text-primary dark:text-primary">
-            You&apos;re on the list. Check your inbox.
-          </p>
+        <div className="relative z-10 mt-6 space-y-3 text-center">
+          <div className="flex items-center justify-center gap-2 text-sm font-bold text-primary dark:text-primary">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] text-white">✓</span>
+            You&apos;re on the list!
+          </div>
           <button
             type="button"
             onClick={() => {
               setSuccess(false);
               setError(null);
             }}
-            className="text-[11px] font-semibold text-primary/80 underline-offset-2 hover:underline dark:text-primary"
+            className="text-[11px] font-bold uppercase tracking-widest text-earth/40 hover:text-primary dark:text-earth/50"
           >
-            Subscribe with another email
+            Use another email
           </button>
         </div>
       ) : (
@@ -122,7 +119,7 @@ export function NewsletterForm() {
           action={isBeehiiv ? undefined : newsletter.action}
           method={isBeehiiv ? undefined : newsletter.method ?? "POST"}
           onSubmit={handleSubmit}
-          className="relative z-10 mt-4 flex flex-col gap-2 sm:flex-row"
+          className="relative z-10 mt-6 flex flex-col gap-3"
         >
           {!isBeehiiv && newsletter.hiddenFields &&
             Object.entries(newsletter.hiddenFields).map(([key, value]) => (
@@ -132,42 +129,35 @@ export function NewsletterForm() {
             type="email"
             name="email"
             required
-            placeholder="you@example.com"
+            placeholder="Enter your email"
             disabled={submitting}
             className="
-          box-border h-12 w-full appearance-none rounded-xl
-    bg-white/70 px-3 text-sm font-medium text-earth
-    placeholder:text-earth/40
-
-    border border-earth/15
-    shadow-sm shadow-black/10
-
-    focus:border-primary/60
-    focus:ring-2 focus:ring-primary/30
-    focus:outline-none
-
-    dark:bg-white/15
-    dark:border-white/20
-    dark:placeholder:text-earth/50
-    disabled:opacity-60"
+              h-12 w-full appearance-none rounded-2xl
+              bg-white/50 px-4 text-sm font-bold text-earth
+              placeholder:text-earth/30
+              border border-earth/5
+              focus:border-primary/40
+              focus:outline-none
+              dark:bg-white/10
+              dark:border-white/5
+              dark:placeholder:text-earth/40
+              disabled:opacity-60
+              transition-all"
           />
           <button
             type="submit"
             disabled={submitting}
-            className="h-12 shrink-0 rounded-xl bg-primary px-4 text-xs font-bold text-white shadow-sm transition-all hover:opacity-90 active:scale-95 disabled:opacity-60"
+            className="h-12 w-full rounded-2xl bg-earth px-4 text-xs font-extrabold uppercase tracking-widest text-cream shadow-lg transition-all hover:bg-earth/90 active:scale-[0.98] disabled:opacity-60 dark:bg-primary dark:text-white"
           >
-            {submitting ? "Joining..." : "Join"}
+            {submitting ? "Joining..." : "Subscribe"}
           </button>
         </form>
       )}
       {error && (
-        <p className="relative z-10 mt-2 text-[11px] text-red-600 dark:text-red-400">
+        <p className="relative z-10 mt-3 text-center text-[11px] font-bold text-red-500/80">
           {error}
         </p>
       )}
-      <div className="pointer-events-none absolute -right-2 -top-2 opacity-5 dark:opacity-10">
-        <span className="text-[100px]">🍃</span>
-      </div>
     </section>
   );
 }

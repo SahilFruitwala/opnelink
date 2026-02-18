@@ -78,7 +78,7 @@ export function SocialRow() {
   if (!socialLinks.length) return null;
 
   return (
-    <section className="space-y-3">
+    <section className="flex flex-wrap items-center justify-center gap-4 py-2">
       {socialLinks.map((link) => (
         <TrackedLink
           key={`${link.type}-${link.href}`}
@@ -86,14 +86,10 @@ export function SocialRow() {
           label={link.label}
           section="social"
           extraUTM={{ utm_content: "social" }}
-          className="group glass flex items-center gap-4 rounded-2xl p-4 transition-all hover:bg-white/50 dark:hover:bg-white/10"
+          className="group glass flex h-12 w-12 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-white/50 dark:hover:bg-white/10"
         >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-earth transition-transform group-hover:scale-110 dark:bg-accent/30 dark:text-earth">
+          <div className="text-earth transition-colors group-hover:text-primary dark:text-earth dark:group-hover:text-primary">
             <SocialIcon type={link.type} />
-          </div>
-          <div className="flex flex-1 items-center justify-between gap-3">
-            <p className="text-sm font-bold text-earth dark:text-earth">{link.label}</p>
-            <span className="text-sm text-earth/30 dark:text-earth/40">›</span>
           </div>
         </TrackedLink>
       ))}
