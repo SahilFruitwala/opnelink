@@ -100,11 +100,12 @@ export const links: LinkItem[] = [
     description: "Compress, Convert & Resize Images",
     iconEmoji: "✦",
   },
-  // {
-  //   label: "1-on-1 Portfolio Review",
-  //   href: "https://sahilfruitwala.com/projects",
-  //   iconEmoji: "◍",
-  // },
+  {
+    label: "InfiniteResume",
+    href: "https://infiniteresume.sahilfruitwala.com",
+    description: "Generate & Optimize Your Resume",
+    iconEmoji: "◍",
+  },
 ];
 
 export const newsletter: NewsletterConfig = {
@@ -118,4 +119,3 @@ export const embeds: EmbedItem[] = [
   //   src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   // },
 ];
-
