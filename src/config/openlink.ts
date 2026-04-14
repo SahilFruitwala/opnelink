@@ -59,7 +59,7 @@ export const socialLinks: SocialLink[] = [
   {
     type: "twitter",
     label: "X (Twitter)",
-    href: "https://x.com/SahilBeingSahil",
+    href: "https://inapp.app/sahil/twitter",
   },
   {
     type: "github",
@@ -69,17 +69,17 @@ export const socialLinks: SocialLink[] = [
   {
     type: "youtube",
     label: "YouTube",
-    href: "https://www.youtube.com/@SahilBeingSahil",
+    href: "https://inapp.app/sahil/youtube",
   },
   {
     type: "linkedin",
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sahilfruitwala",
+    href: "https://inapp.app/sahil/linkedin",
   },
   {
     type: "instagram",
     label: "Instagram",
-    href: "https://www.instagram.com/SahilBeingSahil",
+    href: "https://inapp.app/sahil/instagram",
   },
 ];
 
