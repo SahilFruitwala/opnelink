@@ -100,12 +100,12 @@ export const links: LinkItem[] = [
     description: "Compress, Convert & Resize Images",
     iconEmoji: "✦",
   },
-  {
-    label: "InfiniteResume",
-    href: "https://infiniteresume.sahilfruitwala.com",
-    description: "Generate & Optimize Your Resume",
-    iconEmoji: "◍",
-  },
+  // {
+  //   label: "InfiniteResume",
+  //   href: "https://infiniteresume.sahilfruitwala.com",
+  //   description: "Generate & Optimize Your Resume",
+  //   iconEmoji: "◍",
+  // },
 ];
 
 export const newsletter: NewsletterConfig = {
